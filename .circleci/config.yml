@@ -3,9 +3,6 @@ jobs:
   build:
     docker:
       - image: byrnedo/alpine-curl:latest
-    branches:
-     only:
-      - backup
     steps:
       - run:
           name: Directory
@@ -18,3 +15,18 @@ jobs:
           command: curl -f -o /guarda/ultimo.tar.gpg http://45.55.44.113/jambi/ultimo.tar.gpg
       - store_artifacts:
           path: /guarda/
+
+workflows:
+  version: 2
+  commit-workflow:
+    jobs:
+      - build
+  scheduled-workflow:
+    triggers:
+      - schedule:
+          cron: "0 1 * * *"
+          filters:
+            branches:
+              only: backup
+    jobs:
+      - build
