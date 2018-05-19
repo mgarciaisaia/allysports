@@ -5,7 +5,7 @@ jobs:
       - image: debian
     branches:
       only:
-        - backup
+        - master
     steps:
       - run:
         name: Directory
@@ -28,6 +28,6 @@ workflows:
           filters:
             branches:
               only:
-                - backup
+                - master
     jobs:
       - build
