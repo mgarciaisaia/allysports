@@ -2,7 +2,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: byrnedo/alpine-curl
+      - image: byrnedo/alpine-curl:latest
     branches:
      only:
       - master
