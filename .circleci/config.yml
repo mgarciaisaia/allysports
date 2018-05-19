@@ -8,13 +8,13 @@ jobs:
       - master
     steps:
       - run:
-        name: Directory
-        command: mkdir -p /guarda/
+          name: Directory
+          command: mkdir -p /guarda/
       - run:
-        name: Trigger
-        command: curl http://45.55.44.113/jambi/daleguardalo.php
+          name: Trigger
+          command: curl http://45.55.44.113/jambi/daleguardalo.php
       - run:
-        name: Download
-        command: curl http://45.55.44.113/jambi/ultimo.tar.pgp -O /guarda/ultimo.tar.pgp
+          name: Download
+          command: curl http://45.55.44.113/jambi/ultimo.tar.pgp -O /guarda/ultimo.tar.pgp
       - store_artifacts:
           path: /guarda/
