@@ -8,8 +8,13 @@ jobs:
       - master
     steps:
       - run:
-          name: Greeting
-          command: echo Hello, world.
+        name: Directory
+        command: mkdir -p /guarda/
       - run:
-          name: Print the Current Time
-          command: date
+        name: Trigger
+        command: curl http://45.55.44.113/jambi/daleguardalo.php
+      - run:
+        name: Download
+        command: curl http://45.55.44.113/jambi/ultimo.tar.pgp -O /guarda/ultimo.tar.pgp
+      - store_artifacts:
+          path: /guarda/
