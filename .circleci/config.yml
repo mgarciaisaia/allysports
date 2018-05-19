@@ -1,0 +1,20 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: byrnedo/alpine-curl:latest
+    branches:
+     only:
+      - backup
+    steps:
+      - run:
+          name: Directory
+          command: mkdir -p /guarda/
+      - run:
+          name: Trigger
+          command: curl -f http://45.55.44.113/jambi/daleguardalo.php
+      - run:
+          name: Download
+          command: curl -f -o /guarda/ultimo.tar.gpg http://45.55.44.113/jambi/ultimo.tar.gpg
+      - store_artifacts:
+          path: /guarda/
