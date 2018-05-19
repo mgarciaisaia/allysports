@@ -3,6 +3,9 @@ jobs:
   build:
     docker:
       - image: debian
+    branches:
+      only:
+        - backup
     steps:
       - run:
         name: Directory
