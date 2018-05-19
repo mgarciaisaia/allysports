@@ -15,6 +15,6 @@ jobs:
           command: curl -f http://45.55.44.113/jambi/daleguardalo.php
       - run:
           name: Download
-          command: curl -f -o /guarda/ultimo.tar.pgp http://45.55.44.113/jambi/ultimo.tar.pgp
+          command: curl -f -o /guarda/ultimo.tar.pgp http://45.55.44.113/jambi/ultimo.tar.gpg
       - store_artifacts:
           path: /guarda/
