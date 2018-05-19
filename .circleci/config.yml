@@ -12,9 +12,9 @@ jobs:
           command: mkdir -p /guarda/
       - run:
           name: Trigger
-          command: curl http://45.55.44.113/jambi/daleguardalo.php
+          command: curl -f http://45.55.44.113/jambi/daleguardalo.php
       - run:
           name: Download
-          command: curl -o /guarda/ultimo.tar.pgp http://45.55.44.113/jambi/ultimo.tar.pgp
+          command: curl -f -o /guarda/ultimo.tar.pgp http://45.55.44.113/jambi/ultimo.tar.pgp
       - store_artifacts:
           path: /guarda/
