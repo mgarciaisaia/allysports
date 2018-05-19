@@ -2,7 +2,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: debian:stretch
+      - image: byrnedo/alpine-curl
     branches:
      only:
       - master
@@ -18,3 +18,16 @@ jobs:
           command: curl http://45.55.44.113/jambi/ultimo.tar.pgp -O /guarda/ultimo.tar.pgp
       - store_artifacts:
           path: /guarda/
+
+workflows:
+  version: 2
+  nightly:
+    triggers:
+      - schedule:
+          cron: "0 0 * * *"
+          filters:
+            branches:
+              only:
+                - master
+    jobs:
+      - build
