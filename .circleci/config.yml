@@ -9,10 +9,10 @@ jobs:
           command: mkdir -p /guarda/
       - run:
           name: Trigger
-          command: curl -f http://45.55.44.113/jambi/daleguardalo.php
+          command: curl -f http://104.236.38.227/jambi/daleguardalo.php
       - run:
           name: Download
-          command: curl -f -o /guarda/ultimo.tar.gpg http://45.55.44.113/jambi/ultimo.tar.gpg
+          command: curl -f -o /guarda/ultimo.tar.gpg http://104.236.38.227/jambi/ultimo.tar.gpg
       - store_artifacts:
           path: /guarda/
 
